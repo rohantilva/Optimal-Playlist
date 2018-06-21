@@ -25,10 +25,10 @@ SPOTIFY_TOKEN_URL = "https://accounts.spotify.com/api/token"
 SPOTIFY_API_BASE_URL = "https://api.spotify.com"
 API_VERSION = "v1"
 SPOTIFY_API_URL = "{}/{}".format(SPOTIFY_API_BASE_URL, API_VERSION)
+PORT = 8080
 
 # Server-side Parameters
 REDIRECT_URI = "https://optimalplaylist.herokuapp.com/callback/q"
-# REDIRECT_URI = "127.0.0.1:8080/callback/q"
 SCOPE = "playlist-modify-public playlist-modify-private"
 STATE = ""
 SHOW_DIALOG_bool = True
@@ -78,7 +78,8 @@ def data_handle():
     host_id = request.form['host_user']
     id1 = request.form['id1']
     id2 = request.form['id2']
-    ids.append(id)
+    ids = []
+    ids.append(host_id)
     if id1 is not "":
         ids.append(id1)
     if id2 is not "":
