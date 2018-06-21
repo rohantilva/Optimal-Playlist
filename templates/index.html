@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+<html lang="en">
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>New Age - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="{{url_for('static', filename='vendor/font-awesome/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='device-mockups/device-mockups.min.css') }}">
+
+    <!-- Custom styles for this template -->
+    <link href="{{url_for('static', filename='new-age.min.css') }}" rel="stylesheet">
+
+  </head>
+
+  <body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="#page-top">Optimal Playlist</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#download">Download</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header class="masthead">
+      <div class="container h-100">
+        <div class="row h-100">
+          <div class="col-lg-7 my-auto">
+            <div class="header-content mx-auto">
+              <h1 class="mb-5">Never waste time creating the perfect playlist ever again!</h1>
+              <h2 class="mb-5">Integrated with Spotify, Optimal Playlist is guaranteed to satisfy every guest at your next gathering.</h2>
+              <a href="#features" class="btn btn-outline btn-xl js-scroll-trigger">Test it out!</a>
+              <a href="#party-form" class="btn btn-outline btn-xl js-scroll-trigger" style="margin-left:10px">Already have a party?</a>
+            </div>
+          </div>
+          <div class="col-lg-5 my-auto">
+            <div class="device-container">
+              <div class="device-mockup iphone6_plus portrait black">
+                <div class="device">
+                  <div class="screen">
+                    <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                    <img src="{{url_for('static', filename='img/spotify2.jpg') }}" class="img-fluid" alt="">
+                  </div>
+                  <div class="button">
+                    <!-- You can hook the "home button" to some JavaScript events or just remove it -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="features" id="features">
+      <div class="container">
+        <div class="section-heading text-center">
+          <h2>Try it out yourself!</h2>
+          <p class="text-muted">Fill out the information below to create your perfect party playlist.</p>
+          <hr>
+        </div>
+        <form action="{{ url_for('data_handle') }}" method="post">
+          <div class="row">
+            <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <button class="btn btn-outline-secondary" id="inputGroup-sizing-default">New Playlist Name</button>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="playlist_name">
+            </div>
+            <div class="input-group mb-3">
+            <div class="input-group-prepend show">
+              <button class="btn btn-outline-secondary" id="inputGroup-sizing-default">Host Spotify Username</button>
+            </div>
+            <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="host_user">
+            </div>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" for="inputGroupSelect01">Party Theme</button>
+              </div>
+              <select class="custom-select" id="inputGroupSelect01">
+                <option selected>Choose...</option>
+                <option value="1">Dance</option>
+                <option value="2">Chill</option>
+                <option value="3">Formal</option>
+              </select>
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <button class="btn btn-outline-secondary" id="">Guest's Spotify Usernames</button>
+              </div>
+              <input type="text" class="form-control" name="id1">
+              <input type="text" class="form-control" name="id2">
+            </div>
+            <div class="input-group mb-3" style="margin-top: 16px;">
+              <div class="input-group-prepend">
+                <div class="btn btn-outline-secondary">
+                  <input type="checkbox" aria-label="Checkbox for following text input">
+                  Would you like to integrate today's most popular hits in your playlist?
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="text-align:center">
+            <button type="submit" class="btn btn-primary" href="" style="width: 151px;height: 49px;">Submit</button>
+          </div>
+      </form>
+      </div>
+    </section>
+
+
+    <title style="text-align:center; padding-top: 50px;">Check out your playlist!</title>
+    <section style="padding-left: 41%;padding-top: 0px;padding-bottom: 50px;">
+      <meta http-equiv="content-type" content="text/html;charset=utf-8">
+  		<style>
+  			body
+  			{
+  			  	font: 10px arial;
+  			}
+  		</style>
+
+  		<script type="text/javascript" src="http://mbostock.github.com/d3/d3.js"></script>
+  		<script type="text/javascript" src="{{url_for('static', filename='guage.js') }}"></script>
+
+  		<script>
+  			var gauges = [];
+  			function createGauge(name, label, min, max)
+  			{
+  				var config =
+  				{
+  					size: 120,
+  					label: label,
+  					min: undefined != min ? min : 0,
+  					max: undefined != max ? max : 100,
+  					minorTicks: 5
+  				}
+  				var range = config.max - config.min;
+  				config.yellowZones = [{ from: config.min + range*0.75, to: config.min + range*0.9 }];
+  				config.redZones = [{ from: config.min + range*0.9, to: config.max }];
+  				gauges[name] = new Gauge(name + "GaugeContainer", config);
+  				gauges[name].render();
+  			}
+  			function createGauges()
+  			{
+  				createGauge("energy", "Energy");
+  				createGauge("danceability", "Danceability");
+  				createGauge("valence", "Valence");
+  				//createGauge("test", "Test", -50, 50 );
+  			}
+  			function updateGauges()
+  			{
+          var str = ["65", "49", "58"]
+          var count = 0;
+  				for (var key in gauges)
+  				{
+  					//var value = getRandomValue(gauges[key])
+            console.log(str[count])
+  					gauges[key].redraw(str[count]);
+            count++;
+  				}
+  			}
+  			function getRandomValue(gauge)
+  			{
+  				var overflow = 0; //10;
+  				return gauge.config.min - overflow + (gauge.config.max - gauge.config.min + overflow*2) *  Math.random();
+  			}
+  			function initialize()
+  			{
+  				createGauges();
+  				setInterval(updateGauges, 5000);
+  			}
+  		</script>
+
+	<body onload="initialize()">
+		<span id="energyGaugeContainer"></span>
+		<span id="danceabilityGaugeContainer"></span>
+		<span id="valenceGaugeContainer"></span>
+	</body>
+
+</section>
+<section class="download bg-primary text-center" id="download">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 mx-auto">
+        <h2 class="section-heading">Find us on your app store!</h2>
+        <p>Our app is available on any mobile device! Download now to get the party started!</p>
+        <div class="badges">
+          <a class="badge-link" href="#"><img src="{{url_for('static', filename='img/google-play-badge.svg') }}" alt=""></a>
+          <a class="badge-link" href="#"><img src="{{url_for('static', filename='img/app-store-badge.svg') }}" alt=""></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<form action="{{ url_for('partyform') }}" method="post">
+  <section class="party-form" id="party-form">
+    <div class="container">
+      <div class="section-heading text-center">
+        <h2>Trying to join a party?</h2>
+        <p class="text-muted">Fill out the information below to add your own flavor to the party!</p>
+        <hr>
+      </div>
+        <div class="row">
+          <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="btn btn-outline-secondary" id="inputGroup-sizing-default">Your Name</button>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="your_name">
+          </div>
+          <div class="input-group mb-3">
+          <div class="input-group-prepend show">
+            <button class="btn btn-outline-secondary" id="inputGroup-sizing-default">Your Spotify Username</button>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="your_user">
+          </div>
+          <div class="input-group mb-3">
+          <div class="input-group-prepend show">
+            <button class="btn btn-outline-secondary" id="inputGroup-sizing-default">Party ID</button>
+          </div>
+          <input type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" name="partyid">
+          </div>
+        </div>
+        <div style="text-align:center">
+          <button type="submit" class="btn btn-primary" href="" style="width: 151px;height: 49px;">Submit</button>
+        </div>
+    </div>
+  </section>
+</form>
+
+    <section class="features" id="features">
+     <div class="container">
+       <div class="section-heading text-center">
+         <h2>Check out our complete list of features!</h2>
+         <p class="text-muted">We support a variety of guests and their needs so that your party can be unbeatable.</p>
+         <hr>
+       </div>
+       <div class="row">
+         <div class="col-lg-12 my-auto">
+           <div class="container-fluid">
+             <div class="row">
+               <div class="col-lg-4">
+                 <div class="feature-item">
+                   <i class="icon-screen-smartphone text-primary"></i>
+                   <h3>Access from Anywhere</h3>
+                   <p class="text-muted">Be ready to create and edit your playlist from anywhere!</p>
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="feature-item">
+                   <i class="icon-social-facebook text-primary"></i>
+                   <h3>Facebook Integration</h3>
+                   <p class="text-muted">Use your created Facebook Events in order to customize a party playlist based on your attendees!</p>
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="feature-item">
+                   <i class="icon-social-spotify text-primary"></i>
+                   <h3>The Best Songs</h3>
+                   <p class="text-muted">Uses the most listened to songs from each playlist of each user to create a universally loved party playlist!</p>
+                 </div>
+               </div>
+             </div>
+             <div class="row">
+               <div class="col-lg-4">
+                 <div class="feature-item">
+                   <i class="icon-music-tone-alt text-primary"></i>
+                   <h3>Customized Themes</h3>
+                   <p class="text-muted">Select any theme for your party in order to customize your playlist for it!</p>
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="feature-item">
+                   <i class="icon-globe-alt text-primary"></i>
+                   <h3>Perfect for Large Events</h3>
+                   <p class="text-muted">Conferences, sports events, and dances will never be boring again as the music will be directly correlated to the attending demographic!</p>
+                 </div>
+               </div>
+               <div class="col-lg-4">
+                 <div class="feature-item">
+                   <i class="icon-clock text-primary"></i>
+                   <h3>Continuous Updates</h3>
+                   <p class="text-muted">Keep adding people to your Facebook Event or the playlist directly and see real time updates!</p>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </div>
+       </div>
+     </div>
+   </section>
+
+    <!-- <section class="cta">
+      <div class="cta-content">
+        <div class="container">
+          <h2>Stop waiting.<br>Start building.</h2>
+          <a href="#contact" class="btn btn-outline btn-xl js-scroll-trigger">Let's Get Started!</a>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </section> -->
+
+
+    <footer>
+      <div class="container">
+        <p>&copy; Your Website 2018. All Rights Reserved.</p>
+        <ul class="list-inline">
+          <li class="list-inline-item">
+            <a href="#">Privacy</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">Terms</a>
+          </li>
+          <li class="list-inline-item">
+            <a href="#">FAQ</a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/new-age.min.js"></script>
+
+  </body>
+
+</html>
